@@ -5,8 +5,8 @@
 [![GitHub issues](https://img.shields.io/github/issues/MrSlide/parseSRT.svg?style=flat-square)](https://github.com/MrSlide/ExtDate/issues)
 [![license](https://img.shields.io/github/license/MrSlide/parseSRT.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-A standalone function to parse and convert SRT subtitle data into JSON format.
-This has been adapted from the [popcorn.js](http://popcornjs.org/) SRT parse plugin source code. The code to parse the SRT data is basically the same, with some differences in how the data is output and the timestamp format.
+A standalone and dependency-free function to parse and convert SRT subtitle data into JSON format.
+This has been adapted from the [popcorn.js](http://popcornjs.org/) SRT parse plugin source code. The code to parse the SRT data is basically the same, with some differences in how the data is output.
 
 
 
@@ -79,8 +79,8 @@ The subtitle object has the following structure:
 | Property   | Type     | Description                                                                                                  |
 |------------|----------|--------------------------------------------------------------------------------------------------------------|
 | id         | [Number] | The subtitle ID number, which corresponds to the order in the sequence of subtitles present in the SRT file. |
-| start      | [Number] | The start timestamp in milliseconds                                                                          |
-| end        | [Number] | The end timestamp in milliseconds                                                                            |
+| start      | [Number] | The start timestamp in seconds                                                                               |
+| end        | [Number] | The end timestamp in seconds                                                                                 |
 | text       | [String] | The contents of the subtitle. HTML tags are kept for styling.                                                |
 
 
@@ -118,8 +118,5 @@ Released under the [MIT](https://opensource.org/licenses/MIT) license
 
 Copyright (c) 2016 Luís Rodrigues
 
-[Object]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object
 [String]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String
 [Number]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number
-[Boolean]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-[HTMLCanvasElement]: https://developer.mozilla.org/en/docs/Web/API/HTMLCanvasElement

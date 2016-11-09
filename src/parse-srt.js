@@ -5,26 +5,26 @@
  * @desc Parses and converts SRT subtitle data into JSON format. Adapted from the popcorn.js SRT parser plugin.
  * @see http://popcornjs.org/
  * @author Luis Rodrigues (http://www.luisrodriguesweb.com)
- * @version 0.1.0-alpha
+ * @version 1.0.0-alpha
  * @license MIT
  */
 
 /**
  * @typedef {JSONSubtitle}
  * @property {Number} id - The subtitle ID number.
- * @property {Number} start - The start timestamp in milliseconds.
- * @property {Number} end - The end timestamp in milliseconds.
+ * @property {Number} start - The start timestamp in seconds.
+ * @property {Number} end - The end timestamp in seconds.
  * @property {String} text - The subtitle HTML.
  */
 
 /**
- * Convert a HH:MM:SS,MMM or HH:MM:SS.MMM time format into milliseconds.
+ * Convert a HH:MM:SS,MMM or HH:MM:SS.MMM time format into seconds.
  *
  * @private
  * @param {String} time - The time to be converted.
- * @return {Number} - The time converted to milliseconds.
+ * @return {Number} - The time converted to seconds.
  */
-function toMilliseconds (time) {
+function toSeconds (time) {
   const t = time.split(':')
 
   try {
@@ -35,7 +35,7 @@ function toMilliseconds (time) {
       s = t[2].split('.')
     }
 
-    return parseFloat(t[0], 10) * 3600000 + parseFloat(t[1], 10) * 60000 + parseFloat(s[0], 10) * 1000 + parseFloat(s[1], 10)
+    return parseFloat(t[0], 10) * 3600 + parseFloat(t[1], 10) * 60 + parseFloat(s[0], 10) + parseFloat(s[1], 10) / 1000
   } catch (e) {
     return 0
   }
@@ -116,14 +116,14 @@ export default function parseSRT (data = '') {
     // Split on '-->' delimiter, trimming spaces as well
     time = lines[i++].split(/[\t ]*-->[\t ]*/)
 
-    sub.start = toMilliseconds(time[0])
+    sub.start = toSeconds(time[0])
 
     // So as to trim positioning information from end
     idx = time[1].indexOf(' ')
     if (idx !== -1) {
       time[1] = time[1].substr(0, idx)
     }
-    sub.end = toMilliseconds(time[1])
+    sub.end = toSeconds(time[1])
 
     // Build single line of text from multi-line subtitle in file
     while (i < endIdx && lines[i]) {

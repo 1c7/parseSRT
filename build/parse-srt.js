@@ -9,11 +9,11 @@
  * @desc Parses and converts SRT subtitle data into JSON format. Adapted from the popcorn.js SRT parser plugin.
  * @see http://popcornjs.org/
  * @author Luis Rodrigues (http://www.luisrodriguesweb.com)
- * @version 0.1.0-alpha
+ * @version 1.0.0-alpha
  * @license MIT
  */
 
-function toMilliseconds(time) {
+function toSeconds(time) {
   var t = time.split(':');
 
   try {
@@ -23,7 +23,7 @@ function toMilliseconds(time) {
       s = t[2].split('.');
     }
 
-    return parseFloat(t[0], 10) * 3600000 + parseFloat(t[1], 10) * 60000 + parseFloat(s[0], 10) * 1000 + parseFloat(s[1], 10);
+    return parseFloat(t[0], 10) * 3600 + parseFloat(t[1], 10) * 60 + parseFloat(s[0], 10) + parseFloat(s[1], 10) / 1000;
   } catch (e) {
     return 0;
   }
@@ -69,13 +69,13 @@ function parseSRT() {
 
     time = lines[i++].split(/[\t ]*-->[\t ]*/);
 
-    sub.start = toMilliseconds(time[0]);
+    sub.start = toSeconds(time[0]);
 
     idx = time[1].indexOf(' ');
     if (idx !== -1) {
       time[1] = time[1].substr(0, idx);
     }
-    sub.end = toMilliseconds(time[1]);
+    sub.end = toSeconds(time[1]);
 
     while (i < endIdx && lines[i]) {
       text.push(lines[i++]);
