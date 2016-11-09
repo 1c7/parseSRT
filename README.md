@@ -1,8 +1,8 @@
 # parseSRT
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
-[![latest-release](https://img.shields.io/github/release/MrSlide/parseSRT.svg?style=flat-square)](https://github.com/MrSlide/ExtDate/tree/master)
-[![GitHub issues](https://img.shields.io/github/issues/MrSlide/parseSRT.svg?style=flat-square)](https://github.com/MrSlide/ExtDate/issues)
+[![latest-release](https://img.shields.io/github/release/MrSlide/parseSRT.svg?style=flat-square)](https://github.com/MrSlide/parseSRT/tree/master)
+[![GitHub issues](https://img.shields.io/github/issues/MrSlide/parseSRT.svg?style=flat-square)](https://github.com/MrSlide/parseSRT/issues)
 [![license](https://img.shields.io/github/license/MrSlide/parseSRT.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 A standalone and dependency-free function to parse and convert SRT subtitle data into JSON format.

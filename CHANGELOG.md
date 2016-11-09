@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [Unreleased]
+
+### Fixed
+
+- Fixed some links and references in the README.md file.
+
+
 ## [v1.0.0-alpha] - 2016-11-09
 
 ### Changed
